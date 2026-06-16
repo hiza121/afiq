@@ -1,1 +1,514 @@
-heloo
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>[Your Name] | Student Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: #f6fbff;
+      color: #172033;
+      font-family: "Inter", Arial, sans-serif;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .navbar {
+      align-items: center;
+      background: rgba(255, 255, 255, 0.9);
+      border-bottom: 1px solid #dbeafe;
+      display: flex;
+      justify-content: space-between;
+      left: 0;
+      padding: 18px 7%;
+      position: sticky;
+      right: 0;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(14px);
+    }
+
+    .logo {
+      align-items: center;
+      color: #075cab;
+      display: flex;
+      font-size: 1.1rem;
+      font-weight: 800;
+      gap: 10px;
+    }
+
+    .logo-icon {
+      align-items: center;
+      background: #0b74d1;
+      border-radius: 8px;
+      color: #fff;
+      display: inline-flex;
+      height: 36px;
+      justify-content: center;
+      width: 36px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 26px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: #42526b;
+      font-size: 0.95rem;
+      font-weight: 600;
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: #0b74d1;
+    }
+
+    .hero {
+      align-items: center;
+      display: grid;
+      gap: 56px;
+      grid-template-columns: 1.15fr 0.85fr;
+      min-height: calc(100vh - 74px);
+      padding: 72px 7% 84px;
+    }
+
+    .badge {
+      background: #e6f2ff;
+      border: 1px solid #bfdbfe;
+      border-radius: 999px;
+      color: #075cab;
+      display: inline-block;
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-bottom: 18px;
+      padding: 8px 14px;
+    }
+
+    .hero h1 {
+      color: #0f2442;
+      font-size: clamp(2.4rem, 6vw, 4.7rem);
+      letter-spacing: 0;
+      line-height: 1.02;
+      margin-bottom: 22px;
+    }
+
+    .hero h1 span {
+      color: #0b74d1;
+    }
+
+    .hero p {
+      color: #52627a;
+      font-size: 1.08rem;
+      max-width: 650px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 32px;
+    }
+
+    .btn {
+      align-items: center;
+      border-radius: 8px;
+      display: inline-flex;
+      font-weight: 700;
+      gap: 10px;
+      justify-content: center;
+      min-height: 48px;
+      padding: 12px 18px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: #0b74d1;
+      color: #fff;
+      box-shadow: 0 14px 30px rgba(11, 116, 209, 0.24);
+    }
+
+    .btn-secondary {
+      background: #fff;
+      border: 1px solid #bfdbfe;
+      color: #075cab;
+    }
+
+    .profile-card {
+      background: #fff;
+      border: 1px solid #dbeafe;
+      border-radius: 8px;
+      box-shadow: 0 24px 60px rgba(16, 76, 128, 0.14);
+      padding: 24px;
+    }
+
+    .profile-placeholder {
+      align-items: center;
+      aspect-ratio: 1;
+      background:
+        linear-gradient(135deg, rgba(11, 116, 209, 0.9), rgba(44, 151, 255, 0.72)),
+        repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.12) 0 10px, transparent 10px 20px);
+      border-radius: 8px;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 280px;
+      text-align: center;
+    }
+
+    .profile-placeholder .avatar-icon {
+      font-size: 5rem;
+      margin-bottom: 14px;
+    }
+
+    .profile-placeholder strong {
+      font-size: 1.25rem;
+    }
+
+    .quick-info {
+      display: grid;
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .quick-info div {
+      align-items: center;
+      background: #f1f7ff;
+      border-radius: 8px;
+      display: flex;
+      gap: 12px;
+      padding: 14px;
+    }
+
+    .quick-info span {
+      font-size: 1.4rem;
+    }
+
+    .section {
+      padding: 76px 7%;
+    }
+
+    .section-header {
+      margin: 0 auto 34px;
+      max-width: 720px;
+      text-align: center;
+    }
+
+    .section-header h2 {
+      color: #0f2442;
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      line-height: 1.15;
+      margin-bottom: 12px;
+    }
+
+    .section-header p {
+      color: #5b6b82;
+    }
+
+    .about-grid {
+      display: grid;
+      gap: 22px;
+      grid-template-columns: 1.1fr 0.9fr;
+    }
+
+    .panel,
+    .skill-card,
+    .contact-card {
+      background: #fff;
+      border: 1px solid #dbeafe;
+      border-radius: 8px;
+      box-shadow: 0 16px 40px rgba(16, 76, 128, 0.08);
+      padding: 26px;
+    }
+
+    .panel h3,
+    .skill-card h3,
+    .contact-card h3 {
+      color: #0f2442;
+      font-size: 1.18rem;
+      margin-bottom: 10px;
+    }
+
+    .panel p,
+    .skill-card p,
+    .contact-card p {
+      color: #5b6b82;
+    }
+
+    .details-list {
+      display: grid;
+      gap: 14px;
+      list-style: none;
+    }
+
+    .details-list li {
+      background: #f1f7ff;
+      border-left: 4px solid #0b74d1;
+      border-radius: 8px;
+      padding: 14px 16px;
+    }
+
+    .details-list strong {
+      color: #0f2442;
+      display: block;
+      font-size: 0.86rem;
+      margin-bottom: 2px;
+      text-transform: uppercase;
+    }
+
+    .skills-grid,
+    .contact-grid {
+      display: grid;
+      gap: 20px;
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .icon-box {
+      align-items: center;
+      background: #e6f2ff;
+      border-radius: 8px;
+      color: #075cab;
+      display: flex;
+      font-size: 1.8rem;
+      height: 54px;
+      justify-content: center;
+      margin-bottom: 18px;
+      width: 54px;
+    }
+
+    .contact {
+      background: #eaf5ff;
+    }
+
+    .footer {
+      background: #0f2442;
+      color: #dbeafe;
+      padding: 26px 7%;
+      text-align: center;
+    }
+
+    @media (max-width: 900px) {
+      .hero,
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 52px;
+      }
+
+      .skills-grid,
+      .contact-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 680px) {
+      .navbar {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      .nav-links {
+        flex-wrap: wrap;
+        gap: 12px 18px;
+      }
+
+      .hero,
+      .section {
+        padding-left: 5%;
+        padding-right: 5%;
+      }
+
+      .hero-actions,
+      .btn {
+        width: 100%;
+      }
+
+      .skills-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <a class="logo" href="#home">
+      <span class="logo-icon">ICT</span>
+      <span>[Your Name]</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section class="hero" id="home">
+      <div>
+        <span class="badge">Future ICT Professional</span>
+        <h1>Hello, I am <span>[Your Name]</span>.</h1>
+        <p>
+          A motivated student from [Your School Name] who enjoys learning technology,
+          solving problems, and building a strong foundation for a future career as
+          [Your Dream Career].
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#contact">Contact Me</a>
+          <a class="btn btn-secondary" href="#skills">View Skills</a>
+        </div>
+      </div>
+
+      <aside class="profile-card" aria-label="Student profile summary">
+        <div class="profile-placeholder">
+          <div class="avatar-icon">👤</div>
+          <strong>Profile Image</strong>
+          <p>Add your photo here</p>
+        </div>
+        <div class="quick-info">
+          <div><span>🏫</span><p><strong>School:</strong> [Your School Name]</p></div>
+          <div><span>💼</span><p><strong>Dream Career:</strong> [Your Dream Career]</p></div>
+          <div><span>📘</span><p><strong>Favourite Subject:</strong> [Your Favourite Subject]</p></div>
+        </div>
+      </aside>
+    </section>
+
+    <section class="section" id="about">
+      <div class="section-header">
+        <h2>About Me</h2>
+        <p>
+          A short introduction to my personality, interests, and goals as a student
+          preparing for opportunities in information and communication technology.
+        </p>
+      </div>
+
+      <div class="about-grid">
+        <article class="panel">
+          <h3>Who I Am</h3>
+          <p>
+            My name is [Your Name]. I am a student at [Your School Name] with a strong
+            interest in ICT, digital tools, and creative problem solving. I enjoy learning
+            how technology can improve everyday life and help people work smarter.
+          </p>
+          <p>
+            My dream career is to become [Your Dream Career]. I am building my confidence,
+            communication skills, and technical knowledge step by step so I can succeed in
+            school and in my future profession.
+          </p>
+        </article>
+
+        <article class="panel">
+          <h3>Personal Details</h3>
+          <ul class="details-list">
+            <li><strong>Full Name</strong>[Your Name]</li>
+            <li><strong>Hobbies</strong>[Your Hobbies]</li>
+            <li><strong>Favourite Subject</strong>[Your Favourite Subject]</li>
+            <li><strong>Dream Career</strong>[Your Dream Career]</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="skills">
+      <div class="section-header">
+        <h2>Skills</h2>
+        <p>
+          These skills support my journey as a future ICT professional and help me grow
+          as a confident, responsible student.
+        </p>
+      </div>
+
+      <div class="skills-grid">
+        <article class="skill-card">
+          <div class="icon-box">💻</div>
+          <h3>Computer Literacy</h3>
+          <p>Comfortable using digital tools, school platforms, and productivity software.</p>
+        </article>
+        <article class="skill-card">
+          <div class="icon-box">🧠</div>
+          <h3>Problem Solving</h3>
+          <p>Able to think carefully, ask questions, and find practical solutions.</p>
+        </article>
+        <article class="skill-card">
+          <div class="icon-box">🌐</div>
+          <h3>Web Interest</h3>
+          <p>Interested in websites, online systems, design, and how the internet works.</p>
+        </article>
+        <article class="skill-card">
+          <div class="icon-box">🤝</div>
+          <h3>Teamwork</h3>
+          <p>Enjoys working with classmates, sharing ideas, and completing group tasks.</p>
+        </article>
+        <article class="skill-card">
+          <div class="icon-box">🗣️</div>
+          <h3>Communication</h3>
+          <p>Practices clear speaking, active listening, and respectful discussion.</p>
+        </article>
+        <article class="skill-card">
+          <div class="icon-box">📈</div>
+          <h3>Growth Mindset</h3>
+          <p>Willing to learn from mistakes and keep improving through practice.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section contact" id="contact">
+      <div class="section-header">
+        <h2>Contact</h2>
+        <p>
+          Get in touch for school projects, ICT activities, teamwork opportunities,
+          or student portfolio discussions.
+        </p>
+      </div>
+
+      <div class="contact-grid">
+        <article class="contact-card">
+          <div class="icon-box">✉️</div>
+          <h3>Email</h3>
+          <p>your.email@example.com</p>
+        </article>
+        <article class="contact-card">
+          <div class="icon-box">📍</div>
+          <h3>Location</h3>
+          <p>[Your City / Area]</p>
+        </article>
+        <article class="contact-card">
+          <div class="icon-box">🎓</div>
+          <h3>School</h3>
+          <p>[Your School Name]</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© 2026 [Your Name]. Student Portfolio for a Future ICT Professional.</p>
+  </footer>
+</body>
+</html>
